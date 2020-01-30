@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\journalname{labslide.sty} \def\journalID{myset}
+\def\versiondate{2019/12/18}
+\def\versionno{ver1.00}
+\def\copyrightholder{Kotaro Inoue}
+\typeout{Package `\journalname' (\versionno) <\versiondate>\space[\copyrightholder]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \RequirePackage{imakeidx}
+\RequirePackage[
+style=ieee,
+autocite=footnote,
+% citestyle=authoryear,
+citestyle=numeric
+]{biblatex}
+
+% Remove bibtex item icons.
+% \setbeamertemplate{bibliography item}{}
+\setbeamertemplate{bibliography item}[text]
+
+\setbeamertemplate{section in toc}[sections numbered]
+
+\makeatletter
+    \def\@makefnmark{\hbox{{{\usebeamercolor[fg]{footnote mark}\usebeamerfont*{footnote mark} [\@thefnmark]}}}}
+
+    \def\@makefntext#1{%
+        \def\insertfootnotetext{\hspace{5mm}#1}%
+        \def\insertfootnotemark{\@makefnmark}%
+        \usebeamertemplate***{footnote}}
+
+    % \renewcommand{\section}[2]{}
+\makeatother
